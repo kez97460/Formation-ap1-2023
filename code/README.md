@@ -34,4 +34,4 @@ This structure is an example of how a project could look like :
 ## Makefile
 This project can be compiled using the `make` command (assuming you have it installed). The object files, as well as the executable, which are generated during the compilation, may be removed at any time by using the `make clean` command.
 
-The readme can be edited to change the compiler, compilation flags or the name of the generated executable.
+The makefile can be edited to change the compiler, compilation flags or the name of the generated executable.
