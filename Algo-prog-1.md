@@ -42,7 +42,7 @@ img[alt~="center"] {
 ---
 # Remarques
 
-- je suis pas parfait, il peut y avoir des erreurs
+- je peux faire des erreurs
 - les slides et le code associé sont sur github et le site de l'AREM
 - faites pas de bruit ça fait chier tout le monde (vous savez écrire)
 - si c'est pas clair posez des questions
@@ -276,11 +276,11 @@ La fonction ne renvoie rien, mais modifie x.
 
 ### Fonction "malloc" de stdlib
 
-`malloc(n)` cherche une adresse avec un bloc de n octets libres, et renvoie un pointeur vers cette adresse.
+`malloc(n)` cherche une adresse avec un bloc de n octets libres, réserve ces octets, et renvoie un pointeur vers le début du bloc.
 
 On l'utilise comme ceci : 
 ```c
-int* tableau = malloc(nb_elements * sizeof(int)); // crée un tableau de 10 entiers.
+int* tableau = (int*) malloc(nb_elements * sizeof(int)); // crée un tableau de 10 int.
 //...
 free(tableau); // libère la mémoire, donc détruit le tableau.
 ```
@@ -301,9 +301,13 @@ free(tableau); // libère la mémoire, donc détruit le tableau.
 
 ---
 
-# Correction
+![width:30cm](images/ex1_ei22_3.png)
 
-Voir code...
+Correction :
+- fonctions dans le dossier code/include/ex1_EI22
+- code de test dans le main
+
+Tout sera donné à la fin de la formation. 
 
 --- 
 <!--header: "Section : listes chaînées"-->
@@ -350,7 +354,7 @@ On écrit une fonction qui renvoie une copie de la liste avec un élément de pl
 
 ```c
 Noeud* addNoeud(Noeud* tete, float data) {
-    Noeud* nouvelle_tete;
+    Noeud* nouvelle_tete = (Noeud*) malloc(sizeof(Noeud));
     nouvelle_tete->data = data;
     nouvelle_tete->suiv = tete;
     return nouvelle_tete;
@@ -431,10 +435,10 @@ Faites attention aux warnings du compilateur. Ca devrait suffire ici.
 
 ### Connaitre les cas
 
-Une segfault vient très souvent : 
-- d'une récursion infinie
-- de l'accès à une valeur qui n'existe pas dans un tableau
-- de l'utilisation de variables non initialisées
+Une segfault vient très souvent de : 
+- une récursion infinie
+- accès à une valeur qui n'existe pas dans un tableau
+- utilisation de variables non initialisées (**allocation de mémoire**)
 
 Faites attention !
 
@@ -445,7 +449,7 @@ Faites attention !
 1. Compiler avec le flag `-g`.
 2. lancer gdb : `gdb app` (remplacer app par le nom de l'executable)
 3. Taper `run`
-4. Si la ligne de la segfault n'est pas donnée, taper `backtrace`
+4. Si la ligne de la segfault n'est pas donnée, taper `backtrace` pour voir dans quelle fonction vous êtes
 
 
 Essayez au moins une fois avant le test, ca vous servira sûrement !
@@ -454,7 +458,7 @@ Essayez au moins une fois avant le test, ca vous servira sûrement !
 
 ### L'undefined behavior
 
-C'est pire qu'une segfault. C'est les moments où voutre code fait quelque chose d'imprévisible. Exemple :
+C'est pire qu'une segfault. C'est les moments où votre code fait quelque chose d'imprévisible. Exemple :
 ```c
 int tab[3] = {1, 2, 3};
 for (int i = 0; i <= 3; i++) // < et pas <= pour du code correct.
@@ -463,8 +467,7 @@ for (int i = 0; i <= 3; i++) // < et pas <= pour du code correct.
 }
 ```
 
-`tab[3]` n'est pas défini est peut donc renvoyer `-1023715072`.
-Ou segfault, aucun moyen de savoir à l'avance.
+`tab[3]` n'est pas défini est peut donc renvoyer `-1023715072` ou segfault, aucun moyen de savoir à l'avance.
 
 --- 
 <!--header: "Section : conseils pour le projet"-->
@@ -485,9 +488,11 @@ Ces erreurs ont des conséquences :
 Aucune fonction ne doit faire plus de 50 lignes. 
 Chaque fonction doit pouvoir être testée individuellement.
 
-Si possible découper le code en plusieurs fichiers.
+Si possible découper le code en plusieurs fichiers et faire un Makefile.
 
 Remarque : ChatGPT est très doué pour écrire des Makefile.
+
+Remarque 2 : un guide d'écriture de Makefile est dans le github de la formation.
 
 --- 
 
@@ -508,4 +513,6 @@ int duree_intervention, cout_intervention;
 
 # Bon courage pour décembre
 
-Ajouter QR code de la formation ici.
+Repo de la formation (github) :
+
+![height:10cm center](images/qr_code_github_formation.png)
