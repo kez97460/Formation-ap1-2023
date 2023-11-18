@@ -35,6 +35,7 @@ int main()
     printf("Longueur : %d\n", lengthList(liste1)); */
 
     // Test de segfault
+    // uninitialisedVar();
     
     // Test d'undefined behavior
     // tableauFoireux();
