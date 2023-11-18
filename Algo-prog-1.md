@@ -453,6 +453,7 @@ Faites attention !
 
 
 Essayez au moins une fois avant le test, ca vous servira sûrement !
+Installation : `sudo apt install gdb`
 
 --- 
 

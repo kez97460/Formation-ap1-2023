@@ -6,8 +6,7 @@
 
 // void scanfClassic();
 void tableauFoireux();
-void shittyStrings();
-void doubleFree();
-void recursionInfinie();
+void recursionInfinie(unsigned int n);
+void uninitialisedVar();
 
 #endif /* SEGFAULT_H */
