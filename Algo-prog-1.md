@@ -468,7 +468,7 @@ for (int i = 0; i <= 3; i++) // < et pas <= pour du code correct.
 }
 ```
 
-`tab[3]` n'est pas défini est peut donc renvoyer `-1023715072` ou segfault, aucun moyen de savoir à l'avance.
+`tab[3]` n'est pas défini et peut donc renvoyer `-1023715072` ou segfault, aucun moyen de savoir à l'avance.
 
 --- 
 <!--header: "Section : conseils pour le projet"-->
