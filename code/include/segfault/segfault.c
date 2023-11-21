@@ -4,7 +4,7 @@ void scanfClassic()
 {
     int n;
     printf("Entrer n :");
-    scanf("%d", n); // scanf prend un int* en argument, pas un int
+    scanf(" %d", n); // scanf prend un int* en argument, pas un int
     printf("n = %d", n);
 }
 

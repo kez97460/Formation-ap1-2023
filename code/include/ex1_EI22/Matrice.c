@@ -17,7 +17,7 @@ Matrice lireMatrice(char* filename)
     // init tableau des valeurs
     int nb_lignes, nb_colonnes;
     fscanf(fichier, " %d %d", &nb_lignes, &nb_colonnes);
-    int** values = (int**) malloc(nb_colonnes * nb_lignes * sizeof(int));
+    int** values = (int**) malloc(nb_lignes * sizeof(int*));
     for (int i = 0; i < nb_lignes; i++)
     {
         values[i] = (int*) malloc(nb_colonnes * sizeof(int));
