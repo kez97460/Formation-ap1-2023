@@ -356,7 +356,7 @@ On écrit une fonction qui renvoie une copie de la liste avec un élément de pl
 Noeud* addNoeud(Noeud* tete, float data) {
     Noeud* nouvelle_tete = (Noeud*) malloc(sizeof(Noeud));
     nouvelle_tete->data = data;
-    nouvelle_tete->suiv = tete;
+    nouvelle_tete->suiv = *tete;
     return nouvelle_tete;
 }
 ```

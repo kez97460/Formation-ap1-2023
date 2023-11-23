@@ -21,7 +21,7 @@ int main()
     printMatrice(mat2); */
 
     // Test listes chaînées 
-    /* 
+    
     List liste1 = NULL;
     push(&liste1, 1.1);
     push(&liste1, 2.2);
@@ -32,7 +32,7 @@ int main()
     pop(&liste1);
     printf("Used pop()\nliste1 : ");
     printList(liste1);
-    printf("Longueur : %d\n", lengthList(liste1)); */
+    printf("Longueur : %d\n", lengthList(liste1));
 
     // Test de segfault
     // uninitialisedVar();
@@ -41,7 +41,7 @@ int main()
     // tableauFoireux();
 
     // Test de segfault
-    recursionInfinie(0);
+    // recursionInfinie(0);
 
     return 0;
 }
